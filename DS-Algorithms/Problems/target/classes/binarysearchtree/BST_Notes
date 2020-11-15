@@ -1,0 +1,52 @@
+Problem:
+
+Runway Representation System:
+-----------------------------
+
+1. Airport with single a runway.
+2. Reservations for future landings
+3. Reserve request specifies landing time "t"
+4. Add "t" to the set "R" if no other landings are scheduled within "K" minutes.
+5. Remove from set R when flight lands in the Airport.
+
+New Requirement:
+6. Rank(t): how many planes are scheduled to land at times <= t?
+
+
+
+
+Note: Assume 3 minutes is average time for every landing request. 
+
+currenttime = 37;
+futureLandings = 41.2, 49, 56.3, - - - -
+
+comingRequest = 53 (49 + 3 = 52 && 56.3 - 3 = 53.3) --> This request can be accept
+comingRequest = 44 (41.2 + 3 = 44.2) --> Request should be rejected
+comingRequest = 20 --> Request should be rejected as it's past time (37)
+
+
+Invariant:
+----------
+For all nodes "x", "y" will be in the left sub-tree when key(y) <= key(x)
+"y" is in the right sub-tree when key(y) >= key(x)
+
+Reference: https://www.geeksforgeeks.org/check-if-given-sorted-sub-sequence-exists-in-binary-search-tree/ 
+----------
+
+Operations:
+-----------
+1. Insert
+2. find.min() -> Go to the left till the leaf: O(n) complexity
+3. find.max() -> Go to the right till the leaf: O(n) complexity
+4. Search
+6. Total size
+5. Delete
+
+
+
+
+
+
+
+
+
